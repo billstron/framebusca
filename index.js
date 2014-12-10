@@ -1,9 +1,11 @@
 var path = require("path");
 var express = require("express");
 var bodyParser = require("body-parser");
-
+var config = require("./config.json");
 
 var app = express();
+
+app.set("config", config);
 
 // Standard express setup
 app.use(bodyParser.json());

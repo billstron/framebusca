@@ -6,7 +6,7 @@
 		function($http){
 			var self = this;
 			
-			this.query = [21, 52, 21];
+			this.dims = [21, 52, 21];
 			this.page = 0;
 			this.numberPerPage = 20;
 			this.results = [];
@@ -14,7 +14,7 @@
 			this.submit = function(){
 				self.page = 0;
 				self.results = [];
-				$http.post("/api/combined", {page : self.page, num : self.numberPerPage})
+				$http.post("/api/combined", {page : self.page, num : self.numberPerPage, dims: self.dims})
 					.success(function(items){
 						items.forEach(function(item){
 							self.results.push(item);
