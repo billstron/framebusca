@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Framebusca</title>
+
+<link rel="stylesheet" type="text/css" href="/vendor/foundation/css/normalize.css">
+<link rel="stylesheet" type="text/css" href="/vendor/foundation/css/foundation.css">
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+
+</head>
+<body ng-app="app">
+	
+	<div class="fixed">
+		<div class="fb-title-bar">
+			
+		</div>
+	</div>
+	
+	<div class="row fb-below-title">
+		<div class="columns medium-6 large-4 right">
+			<h3>Sponsored by</h3>
+			<h2><a href="http://www.lensfactory.com/">LensFactory</a></h2>
+		</div>
+		
+		<div ng-controller="Main as main" class="columns medium-6 large-8">
+			<div class="row fb-query">
+				<div class="columns small-2 text-center">
+					<input type="text" class="fb-query-box" ng-model="main.query[0]" />
+				</div>
+				<div class="columns small-1 text-center">
+					<span class="fb-big-dash">-</span>
+				</div>
+				<div class="columns small-2 text-center">
+					<input type="text" class="fb-query-box" ng-model="main.query[1]" />
+				</div>
+				<div class="columns small-1 text-center">
+					<span class="fb-big-dash">-</span>
+				</div>
+				<div class="columns small-2 text-center">
+					<input type="text" class="fb-query-box" ng-model="main.query[2]" />
+				</div>
+				<div class="columns small-4 text-center">
+					<button class="button fb-query-button" ng-click="main.submit()">FIND</button>
+				</div>
+			</div>
+			<div class="row fb-explainer" ng-hide="main.results.length">
+				Explaining it to them
+			</div>
+			<div class="row fb-results" ng-show="main.results.length">
+				<div class="fb-result" ng-repeat="item in main.results">
+				
+				</div>
+			</div>
+		
+		</div>
+		
+	</div>
+	
+	
+	
+	<script src="/vendor/modernizr/modernizr.js"></script>
+	<script src="/vendor/jquery/dist/jquery.min.js"></script>
+	<script src="/vendor/jquery-placeholder/jquery.placeholder.js"></script>
+	<script src="/vendor/foundation/js/foundation.min.js"></script>
+	<script src="/vendor/angular/angular.js"></script>
+	<script src="/vendor/angular-route/angular-route.js"></script>
+	<script src="/src/app.js"></script>
+	
+</body>
+</html>
