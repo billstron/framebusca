@@ -6,7 +6,7 @@
 		function($http){
 			var self = this;
 			
-			this.dims = [21, 52, 21];
+			this.dims = [48, 16, 130];
 			this.page = 0;
 			this.numberPerPage = 20;
 			this.results = [];

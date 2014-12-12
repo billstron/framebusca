@@ -9,14 +9,13 @@ app.post("/combined", function(req, res){
 	
 	var dims = req.body.dims;
 	
-	async.parallel([
-		model.ebay(dims),
-		// getAmazon(dims)
-	], function(err, results){
-		console.log(results[0]);
-		res.json(results[0]);
+	model.ebay(dims, function(err, results){
+		results.forEach(function(item){
+			console.log(item.title);
+		})
+		res.json(results);
 	});
-	
+
 });
 
 module.exports = app;

@@ -48,8 +48,20 @@
 				Explaining it to them
 			</div>
 			<div class="row fb-results" ng-show="main.results.length">
-				<div class="fb-result" ng-repeat="item in main.results">
-				
+				<div class="fb-result" ng-repeat="item in main.results | orderBy : 'price'">
+					<div class="row">
+						<div class="columns small-3">
+							<img ng-src="{{item.image}}" style="width: 100%" alt="pic" />
+						</div>
+						<div class="columns small-7">
+							<h4>{{item.title}}</h4>
+							<a ng-href="{{item.link}}">link</a>
+						</div>
+						<div class="columns small-2">
+							<!-- {{item.price | currency}} -->
+							<h4>{{item.price | currency}}</h4>
+						</div>
+					</div>
 				</div>
 			</div>
 		
