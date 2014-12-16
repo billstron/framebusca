@@ -26,28 +26,28 @@
 		<div ng-controller="Main as main" class="columns medium-6 large-8">
 			<div class="row fb-query">
 				<div class="columns small-2 text-center">
-					<input type="text" class="fb-query-box" ng-model="main.dims[0]" />
+					<input type="text" class="fb-query-box" ng-model="main.x" />
 				</div>
 				<div class="columns small-1 text-center">
 					<span class="fb-big-dash">-</span>
 				</div>
 				<div class="columns small-2 text-center">
-					<input type="text" class="fb-query-box" ng-model="main.dims[1]" />
+					<input type="text" class="fb-query-box" ng-model="main.x" />
 				</div>
 				<div class="columns small-1 text-center">
 					<span class="fb-big-dash">-</span>
 				</div>
 				<div class="columns small-2 text-center">
-					<input type="text" class="fb-query-box" ng-model="main.dims[2]" />
+					<input type="text" class="fb-query-box" ng-model="main.y" />
 				</div>
 				<div class="columns small-4 text-center">
-					<button class="button fb-query-button" ng-click="main.submit()">FIND</button>
+					<button class="button fb-query-button" ng-click="main.submit(main.x, main.y, main.z)">FIND</button>
 				</div>
 			</div>
 			<div class="row fb-explainer" ng-hide="main.results.length">
 				Explaining it to them
 			</div>
-			<div class="row fb-results" ng-show="main.results.length">
+			<div class="row fb-results">
 				<div class="fb-result" ng-repeat="item in main.results">
 					<div class="row">
 						<div class="columns small-3">
@@ -58,18 +58,13 @@
 							<a ng-href="{{item.link}}">link</a>
 						</div>
 						<div class="columns small-2">
-							<!-- {{item.price | currency}} -->
 							<h4>{{item.price | currency}}</h4>
 						</div>
 					</div>
 				</div>
 			</div>
-		
 		</div>
-		
 	</div>
-	
-	
 	
 	<script src="/vendor/modernizr/modernizr.js"></script>
 	<script src="/vendor/jquery/dist/jquery.min.js"></script>
@@ -77,6 +72,7 @@
 	<script src="/vendor/foundation/js/foundation.min.js"></script>
 	<script src="/vendor/angular/angular.js"></script>
 	<script src="/vendor/angular-route/angular-route.js"></script>
+	<script src="/vendor/lrInfiniteScroll/lrInfiniteScroll.js"></script>
 	<script src="/src/app.js"></script>
 	
 </body>
