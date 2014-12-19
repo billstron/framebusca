@@ -12,7 +12,8 @@ function convert(item){
 		out.price = item.sellingStatus[0].currentPrice[0].__value__;
 		out.link = item.viewItemURL[0];
 	}catch(ex){
-		
+		out = null;
+		console.log("ebay error");
 	}
 	
 	return out;
@@ -36,9 +37,13 @@ module.exports = function(dims, page, callback){
 		var data;
 		var out = [];
 		try{
-			data = JSON.parse(result).findItemsByKeywordsResponse[0].searchResult[0].item;var out = [];
+			data = JSON.parse(result).findItemsByKeywordsResponse[0].searchResult[0].item;
+			var out = [];
 			data.forEach(function(item){
-				out.push(convert(item));
+				var x = convert(item);
+				if(x != null){
+					out.push(x);
+				}
 			});
 		}catch(ex){
 			console.error("Error parsing Ebay:", ex);

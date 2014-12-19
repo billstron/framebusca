@@ -20,7 +20,8 @@ function convert(item){
 		out.listPrice = Number(item.ItemAttributes[0].ListPrice[0].Amount[0]) / 100
 		out.price = Number(item.Offers[0].Offer[0].OfferListing[0].Price[0].Amount[0]) / 100;
 	}catch(ex){
-
+		out = null;
+		console.log("amazon error");
 	}
 	
 	return out;
@@ -39,9 +40,9 @@ module.exports = function(dims, page, callback){
 		try{
 			var data = results.ItemSearchResponse.Items[0].Item;
 			data.forEach(function(item){
-				var i = convert(item);
-				if(Object.keys(i).length > 0){
-					out.push(i);
+				var x = convert(item);
+				if(x != null){
+					out.push(x);
 				}
 			
 			});

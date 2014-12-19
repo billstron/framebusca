@@ -1,10 +1,10 @@
 .fb-title-bar{
-	height: 300px;
-	background: blue;
+	height: 120px;
+	background: black;
 }
 
 .fb-below-title{
-	margin-top: 320px;
+	margin-top: 20px;
 }
 
 
@@ -16,7 +16,60 @@
 	
 }
 
+label{
+	color: black !important;
+}
+
+.fb-query{
+	height: 200px;
+	
+}
+
+.fb-query-cell-1{
+	background-image: url("/img/FrameBusca_Numbers_1.png");
+	height: 200px;
+	background-size: 90%;
+	background-repeat: no-repeat;
+	background-position: center; 
+}
+
+.fb-query-cell-2{
+	background-image: url("/img/FrameBusca_Numbers_2.png");
+	height: 200px;
+	background-size: 90%;
+	background-repeat: no-repeat;
+	background-position: center; 
+}
+
+.fb-query-cell-3{
+	background-image: url("/img/FrameBusca_Numbers_3.png");
+	height: 200px;
+	background-size: 90%;
+	background-repeat: no-repeat;
+	background-position: center; 
+}
+
+.fb-back-num{
+	width: 100%;
+	font-size: 200px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 400;
+	color: #aaaaaa;
+	margin-top: -50px;
+	margin-bottom: -50px;
+	z-index; 0;
+}
+
 .fb-query-box{
-	width: 3em !important;
-	height: 3em !important;
+	text-align: center;
+	font-size: 24pt !important;
+	height: 2em !important;
+	border: 2px solid black !important;
+	z-index: 100;
+}
+
+.fb-query-button{
+	background-color: black !important;
+	color: #fafafa !important;
+	height: 3.2em !important;
 }

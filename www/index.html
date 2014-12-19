@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <title>Framebusca</title>
 
+<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="/vendor/foundation/css/normalize.css">
 <link rel="stylesheet" type="text/css" href="/vendor/foundation/css/foundation.css">
 <link rel="stylesheet" type="text/css" href="/css/style.css">
@@ -11,54 +12,66 @@
 </head>
 <body ng-app="app">
 	
-	<div class="fixed">
+	<div>
 		<div class="fb-title-bar">
-			
+			<div class="row">
+				<div class="column small-10">
+					<img src="/img/FRAMEbusca_Thin.png" alt="logo" />
+				</div>
+			</div>
 		</div>
 	</div>
 	
 	<div class="row fb-below-title">
-		<div class="columns medium-6 large-4 right">
-			<h3>Sponsored by</h3>
-			<h2><a href="http://www.lensfactory.com/">LensFactory</a></h2>
+		<div class="columns medium-2 large-2 right text-center">
+			<div id="sticker">
+				<a href="/about" style="color: black">about</a>
+				<br>
+				<a href="http://www.lensfactory.com/"><img src="/img/FrameBusca_Skyscraper.png" alt="advert" /></a>
+			</div>
 		</div>
 		
-		<div ng-controller="Main as main" class="columns medium-6 large-8">
-			<div class="row fb-query">
-				<div class="columns small-2 text-center">
-					<input type="text" class="fb-query-box" ng-model="main.x" />
-				</div>
-				<div class="columns small-1 text-center">
-					<span class="fb-big-dash">-</span>
-				</div>
-				<div class="columns small-2 text-center">
-					<input type="text" class="fb-query-box" ng-model="main.x" />
-				</div>
-				<div class="columns small-1 text-center">
-					<span class="fb-big-dash">-</span>
-				</div>
-				<div class="columns small-2 text-center">
-					<input type="text" class="fb-query-box" ng-model="main.y" />
-				</div>
-				<div class="columns small-4 text-center">
-					<button class="button fb-query-button" ng-click="main.submit(main.x, main.y, main.z)">FIND</button>
+		<div ng-controller="Main as main" class="columns medium-10 large-10">
+			<div class="fb-query">
+				<div class="row">
+					<div class="columns small-3 text-center fb-query-cell-1">
+						<!-- <div class="fb-query-cell-1"></div> -->
+						<label style="margin-top: 50px"><b>LENS WIDTH</b></label>
+						<input type="text" class="fb-query-box expand large" ng-model="main.x" />
+					</div>
+					<div class="columns small-3 text-center fb-query-cell-2">
+						<label style="margin-top: 50px"><b>BRIDGE WIDTH</b></label>
+						<input type="text" class="fb-query-box expand large" ng-model="main.y" />
+					</div>
+					<div class="columns small-3 text-center fb-query-cell-3">
+						<label style="margin-top: 50px"><b>TEMPLE ARM LENGTH</b></label>
+						<input type="text" class="fb-query-box expand large" ng-model="main.z" />
+					</div>
+					<div class="columns small-3 text-center fb-query-cell">
+						<button style="margin-top: 72px"class="expand large secondary fb-query-button" ng-click="main.submit(main.x, main.y, main.z)">SEARCH</button>
+					</div>
 				</div>
 			</div>
 			<div class="row fb-explainer" ng-hide="main.results.length">
-				Explaining it to them
+				<div class="columns text-center">
+					<img style="width: 80%; margin-top: 25px;" src="/img/FrameBusca_diagram.jpg" alt="diagram" />
+				</div>
 			</div>
 			<div class="row fb-results">
-				<div class="fb-result" ng-repeat="item in main.results">
+				<div class="fb-result" ng-repeat="(key, item) in main.results track by key">
 					<div class="row">
 						<div class="columns small-3">
-							<img ng-src="{{item.image}}" style="width: 100%" alt="pic" />
+							<a ng-href="{{item.link}}">
+								<img ng-src="{{item.image}}" style="width: 100%" alt="pic" />
+							</a>
 						</div>
 						<div class="columns small-7">
-							<h4>{{item.title}}</h4>
-							<a ng-href="{{item.link}}">link</a>
+							<a ng-href="{{item.link}}">
+								<h4>{{item.title}}</h4>
+							</a>
 						</div>
 						<div class="columns small-2">
-							<h4>{{item.price | currency}}</h4>
+							<h4><b>{{item.price | currency}}</b></h4>
 						</div>
 					</div>
 				</div>
@@ -73,7 +86,14 @@
 	<script src="/vendor/angular/angular.js"></script>
 	<script src="/vendor/angular-route/angular-route.js"></script>
 	<script src="/vendor/lrInfiniteScroll/lrInfiniteScroll.js"></script>
+	<script src="/src/jquery.sticky.js"></script>
 	<script src="/src/app.js"></script>
+	
+	<script>
+		$(document).ready(function(){
+			$("#sticker").sticky({topSpacing: 20});
+		});
+	</script>
 	
 </body>
 </html>
