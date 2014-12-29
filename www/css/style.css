@@ -28,7 +28,15 @@
 }
 
 .fb-result{
-	
+	padding-top: 20px;
+}
+
+.fb-result a{
+  color: #666666;
+}
+
+.fb-result a:hover{
+  text-decoration: underline;
 }
 
 label{
@@ -37,7 +45,6 @@ label{
 
 .fb-query{
 	height: 200px;
-	
 }
 
 .fb-query-cell-1{

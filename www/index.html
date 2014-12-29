@@ -55,24 +55,24 @@
 			</div>
 			<div class="row fb-explainer" ng-hide="main.results.length || main.loading">
 				<div class="columns text-center">
-					<img style="width: 80%; margin-top: 25px; margin-bottom: 120px;" src="/img/FrameBusca_diagram.jpg" alt="diagram" />
+					<img style="width: 80%; margin-top: 25px;" src="/img/FrameBusca_diagram.jpg" alt="diagram" />
 				</div>
 			</div>
 			<div class="row fb-results">
 				<div class="fb-result" ng-repeat="(key, item) in main.results track by key">
-					<div class="row">
+					<div class="row fb-item">
 						<div class="columns small-3">
 							<a ng-href="{{item.link}}">
 								<img ng-src="{{item.image}}" style="width: 100%" alt="pic" />
 							</a>
 						</div>
-						<div class="columns small-7">
+						<div class="columns small-6">
 							<a ng-href="{{item.link}}">
-								<h4>{{item.title}}</h4>
+								<p>{{item.title}}</p>
 							</a>
 						</div>
-						<div class="columns small-2">
-							<h4><b>{{item.price | currency}}</b></h4>
+						<div class="columns small-3 text-center">
+							<p><b>{{item.price | currency}}</b></p>
 						</div>
 					</div>
 				</div>
