@@ -3,10 +3,10 @@
 WORKING=$HOME/framebusca
 LOGS=/var/log/framebusca-app
 
+cd $WORKING
+
 git checkout master
 git pull
-
-cd $WORKING
 
 npm install
 bower install
