@@ -7,7 +7,7 @@ LOGS=/var/log/framebusca-app
 echo "Deploying the nginx configs."
 sudo rm /etc/nginx/conf.d/*
 
-sudo ln -s $WORKING/framebuscs/config/nginx/* /etc/nginx/conf.d/
+sudo ln -s $WORKING/framebusca/config/nginx/* /etc/nginx/conf.d/
 sudo service nginx restart
 
 # prepare the log directories
