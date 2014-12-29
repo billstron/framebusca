@@ -2,6 +2,7 @@ var path = require("path");
 var express = require("express");
 var bodyParser = require("body-parser");
 var config = require("./config.json");
+var morgan = require('morgan');
 
 var app = express();
 
@@ -10,6 +11,7 @@ app.set("config", config);
 // Standard express setup
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
+app.use(morgan("combined"));
 
 app.use(express.static(path.join(__dirname, "www")));
 app.use('/api', require("./route/api"));

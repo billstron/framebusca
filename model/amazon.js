@@ -21,13 +21,14 @@ function convert(item){
 		out.price = Number(item.Offers[0].Offer[0].OfferListing[0].Price[0].Amount[0]) / 100;
 	}catch(ex){
 		out = null;
-		console.log("amazon error");
+    // console.log("amazon error");
 	}
 	
 	return out;
 }
 
 module.exports = function(dims, page, callback){
+  // console.log("amazon:", dims, page);
 	page++;
 	opHelper.execute('ItemSearch', {
 		'SearchIndex': 'Blended',
@@ -48,7 +49,7 @@ module.exports = function(dims, page, callback){
 			});
 			
 		}catch(ex){
-			console.error("Error parsing Ebay:", ex);
+			console.error("Error parsing amazon:", ex);
 		}
 		
 	    callback(err, out);

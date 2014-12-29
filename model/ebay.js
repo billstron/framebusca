@@ -13,13 +13,14 @@ function convert(item){
 		out.link = item.viewItemURL[0];
 	}catch(ex){
 		out = null;
-		console.log("ebay error");
+    // console.log("ebay error");
 	}
 	
 	return out;
 }
 
 module.exports = function(dims, page, callback){
+  // console.log("ebay:", dims, page);
 	page++;
 	var url = "https://svcs.ebay.com/services/search/FindingService/v1?" 
 		+ "paginationInput.entriesPerPage=20&" 
@@ -46,7 +47,7 @@ module.exports = function(dims, page, callback){
 				}
 			});
 		}catch(ex){
-			console.error("Error parsing Ebay:", ex);
+      // console.error("Error parsing Ebay:", ex);
 		}
 		callback(null, out);
 	});

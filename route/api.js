@@ -17,10 +17,10 @@ app.post("/combined", function(req, res){
 			var out = [];
 			var size = ebayResults.length > amazonResults.length ? ebayResults.length : amazonResults.length;
 			for(var k = 0; k < size; k++){
-				if(typeof ebayResults[k] !== "undefind"){
+				if(typeof ebayResults[k] !== "undefined"){
 					out.push(ebayResults[k])
 				}
-				if(typeof amazonResults[k] !== "undefind"){
+				if(typeof amazonResults[k] !== "undefined"){
 					out.push(amazonResults[k])
 				}
 			}

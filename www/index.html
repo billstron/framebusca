@@ -5,6 +5,7 @@
 <title>Framebusca</title>
 
 <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="/vendor/foundation/css/normalize.css">
 <link rel="stylesheet" type="text/css" href="/vendor/foundation/css/foundation.css">
 <link rel="stylesheet" type="text/css" href="/css/style.css">
@@ -18,7 +19,7 @@
 		<div class="fb-title-bar">
 			<div class="row">
 				<div class="column small-10">
-					<img src="/img/FrameBusca-Title.png" alt="logo" />
+					<a href="/"><img src="/img/FrameBusca-Title.png" alt="logo" /></a>
 				</div>
 			</div>
 		</div>
@@ -52,9 +53,9 @@
 					</div>
 				</div>
 			</div>
-			<div class="row fb-explainer" ng-hide="main.results.length">
+			<div class="row fb-explainer" ng-hide="main.results.length || main.loading">
 				<div class="columns text-center">
-					<img style="width: 80%; margin-top: 25px;" src="/img/FrameBusca_diagram.jpg" alt="diagram" />
+					<img style="width: 80%; margin-top: 25px; margin-bottom: 120px;" src="/img/FrameBusca_diagram.jpg" alt="diagram" />
 				</div>
 			</div>
 			<div class="row fb-results">
@@ -75,6 +76,16 @@
 						</div>
 					</div>
 				</div>
+                <div style="padding-top: 10px;" class="row" ng-show="main.results.length && !main.loading">
+                    <div class="columns">
+                        <button class="expand large secondary fb-query-button" ng-click="main.more()">MORE</button>
+                    </div>
+                </div>
+                <div style="padding-top: 10px;" class="row" ng-show="main.loading">
+                    <div class="columns text-center">
+                        <i class="fa fa-spinner fa-spin fa-4x"></i>
+                    </div>
+                </div>
 			</div>
 		</div>
 	</div>
@@ -98,8 +109,8 @@
 	<script src="/src/app.js"></script>
 	
 	<script>
-		$(document).ready(function(){
-			$("#sticker").sticky({topSpacing: 20});
+        // $(document).ready(function(){
+			
             
             $(window).bind("load", function () {
                 var footer = $(".fb-footer-bar");
@@ -113,7 +124,9 @@
                     });
                 }
             });
-		});
+            
+            $("#sticker").sticky({topSpacing: 20});
+        // });
 	</script>
         
     <script>
