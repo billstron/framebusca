@@ -1,0 +1,11 @@
+{
+	"port": 3001,
+	"events": [
+		{
+      "script" : "/home/ec2-user/framebusca/restart-prod.sh",
+      "branch" : "master",
+      "repo" : "billstron/framebusca",
+      "secret" : "kveBDBqCXqJqQMBqsdcuM"
+		}
+	]
+}
