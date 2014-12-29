@@ -14,86 +14,93 @@
 
 </head>
 <body ng-app="app">
-	
-	<div>
-		<div class="fb-title-bar">
-			<div class="row">
-				<div class="column small-10">
-					<a href="/"><img src="/img/FrameBusca-Title.png" alt="logo" /></a>
-				</div>
-			</div>
-		</div>
-	</div>
-	
-	<div class="row fb-below-title">
-		<div class="columns medium-2 large-2 right text-center">
-			<div id="sticker">
-				<a href="http://www.lensfactory.com/"><img src="/img/FrameBusca-Skyscraper.png" alt="advert" /></a>
-			</div>
-		</div>
-		
-		<div ng-controller="Main as main" class="columns medium-10 large-10">
-			<div class="fb-query">
-				<div class="row">
-					<div class="columns small-3 text-center fb-query-cell-1">
-						<!-- <div class="fb-query-cell-1"></div> -->
-						<label style="margin-top: 50px"><b>LENS WIDTH</b></label>
-						<input type="text" class="fb-query-box expand large" ng-model="main.x" placeholder="48"/>
-					</div>
-					<div class="columns small-3 text-center fb-query-cell-2">
-						<label style="margin-top: 50px"><b>BRIDGE WIDTH</b></label>
-						<input type="text" class="fb-query-box expand large" ng-model="main.y" placeholder="16"/>
-					</div>
-					<div class="columns small-3 text-center fb-query-cell-3">
-						<label style="margin-top: 50px"><b>TEMPLE ARM LENGTH</b></label>
-						<input type="text" class="fb-query-box expand large" ng-model="main.z" placeholder="130"/>
-					</div>
-					<div class="columns small-3 text-center fb-query-cell">
-						<button style="margin-top: 72px"class="expand large secondary fb-query-button" ng-click="main.submit(main.x, main.y, main.z)">SEARCH</button>
-					</div>
-				</div>
-			</div>
-			<div class="row fb-explainer" ng-hide="main.results.length || main.loading">
-				<div class="columns text-center">
-					<img style="width: 80%; margin-top: 25px;" src="/img/FrameBusca_diagram.jpg" alt="diagram" />
-				</div>
-			</div>
-			<div class="row fb-results">
-				<div class="fb-result" ng-repeat="(key, item) in main.results track by key">
-					<div class="row fb-item">
-						<div class="columns small-3">
-							<a ng-href="{{item.link}}">
-								<img ng-src="{{item.image}}" style="width: 100%" alt="pic" />
-							</a>
-						</div>
-						<div class="columns small-6">
-							<a ng-href="{{item.link}}">
-								<p>{{item.title}}</p>
-							</a>
-						</div>
-						<div class="columns small-3 text-center">
-							<p><b>{{item.price | currency}}</b></p>
-						</div>
-					</div>
-				</div>
-                <div style="padding-top: 10px;" class="row" ng-show="main.results.length && !main.loading">
-                    <div class="columns">
-                        <button class="expand large secondary fb-query-button" ng-click="main.more()">MORE</button>
-                    </div>
-                </div>
-                <div style="padding-top: 10px;" class="row" ng-show="main.loading">
-                    <div class="columns text-center">
-                        <i class="fa fa-spinner fa-spin fa-4x"></i>
-                    </div>
-                </div>
-			</div>
-		</div>
-	</div>
     
-    <div class="fb-footer-bar">
-        <div class="row">
-            <div class="columns text-center">
-                <a href="http://www.lensfactory.com/"><img src="/img/framebusca-Footer.png" alt="Lens Factory" /></a>
+    <div id="container">
+	
+    	<div id="header">
+    		<div class="fb-title-bar">
+    			<div class="row">
+    				<div class="column small-10">
+    					<a href="/"><img src="/img/FrameBusca-Title.png" alt="logo" /></a>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+	
+    	<div id="body" class="row fb-below-title" style="min-height: 700px">
+    		<div class="columns medium-2 large-2 right text-center">
+    			<div id="sticker">
+    				<a href="http://www.lensfactory.com/"><img src="/img/FrameBusca-Skyscraper.png" alt="advert" /></a>
+    			</div>
+    		</div>
+		
+    		<div ng-controller="Main as main" class="columns medium-10 large-10">
+    			<div class="fb-query">
+    				<form name="DimsForm" class="row">
+    					<div class="columns small-3 text-center fb-query-cell-1">
+    						<!-- <div class="fb-query-cell-1"></div> -->
+    						<label style="margin-top: 50px"><b>LENS WIDTH</b></label>
+    						<input type="text" class="fb-query-box expand large" ng-model="main.x" placeholder="48" required/>
+    					</div>
+    					<div class="columns small-3 text-center fb-query-cell-2">
+    						<label style="margin-top: 50px"><b>BRIDGE WIDTH</b></label>
+    						<input type="text" class="fb-query-box expand large" ng-model="main.y" placeholder="16" required/>
+    					</div>
+    					<div class="columns small-3 text-center fb-query-cell-3">
+    						<label style="margin-top: 50px"><b>TEMPLE ARM LENGTH</b></label>
+    						<input type="text" class="fb-query-box expand large" ng-model="main.z" placeholder="130" required/>
+    					</div>
+    					<div class="columns small-3 text-center fb-query-cell">
+    						<button 
+                                style="margin-top: 72px"
+                                class="expand large secondary fb-query-button" 
+                                ng-click="main.submit(main.x, main.y, main.z)"
+                                ng-disabled="!DimsForm.$valid">SEARCH</button>
+    					</div>
+                    </form>
+    			</div>
+    			<div class="row fb-explainer" ng-hide="main.results.length || main.loading">
+    				<div class="columns text-center">
+    					<img style="width: 80%; margin-top: 25px;" src="/img/FrameBusca_diagram.jpg" alt="diagram" />
+    				</div>
+    			</div>
+    			<div class="row fb-results">
+    				<div class="fb-result" ng-repeat="(key, item) in main.results track by key">
+    					<div class="row fb-item">
+    						<div class="columns small-3">
+    							<a ng-href="{{item.link}}">
+    								<img ng-src="{{item.image}}" style="width: 100%" alt="pic" />
+    							</a>
+    						</div>
+    						<div class="columns small-6">
+    							<a ng-href="{{item.link}}">
+    								<p>{{item.title}}</p>
+    							</a>
+    						</div>
+    						<div class="columns small-3 text-center">
+    							<p><b>{{item.price | currency}}</b></p>
+    						</div>
+    					</div>
+    				</div>
+                    <div style="padding-top: 10px;" class="row" ng-show="main.results.length && !main.loading">
+                        <div class="columns">
+                            <button class="expand large secondary fb-query-button" ng-click="main.more()">MORE</button>
+                        </div>
+                    </div>
+                    <div style="padding-top: 10px;" class="row" ng-show="main.loading">
+                        <div class="columns text-center">
+                            <i class="fa fa-spinner fa-spin fa-4x"></i>
+                        </div>
+                    </div>
+    			</div>
+    		</div>
+    	</div>
+    
+        <div class="fb-footer-bar">
+            <div class="row">
+                <div class="columns text-center">
+                    <a href="http://www.lensfactory.com/"><img src="/img/framebusca-Footer.png" alt="Lens Factory" /></a>
+                </div>
             </div>
         </div>
     </div>
@@ -111,18 +118,18 @@
         $(document).ready(function(){
 			
             
-            $(window).bind("load", function () {
-                var footer = $(".fb-footer-bar");
-                var pos = footer.position();
-                var height = $(window).height();
-                height = height - pos.top;
-                height = height - footer.height();
-                if (height > 0) {
-                    footer.css({
-                        'margin-top': height + 'px'
-                    });
-                }
-            });
+            // $(window).bind("load", function () {
+//                 var footer = $(".fb-footer-bar");
+//                 var pos = footer.position();
+//                 var height = $(window).height();
+//                 height = height - pos.top;
+//                 height = height - footer.height();
+//                 if (height > 0) {
+//                     footer.css({
+//                         'margin-top': height + 'px'
+//                     });
+//                 }
+//             });
             
             $("#sticker").sticky({topSpacing: 20});
         });
