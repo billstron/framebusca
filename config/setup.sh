@@ -17,7 +17,7 @@ sudo chmod 777 $LOGS
 # restart hooker
 echo "Restarting the github webhook handler"
 sudo killall hooker
-nohup hooker $WORKING/framebusca/hook-config.json &> $LOGS/hooker.log &
+nohup hooker $WORKING/framebusca/config/hook-config.json &> $LOGS/hooker.log &
 
 echo "Finished."
 exit
