@@ -3,10 +3,25 @@
 	background: black;
 }
 
+.fb-title-bar img{
+  height: 100px;
+  padding-top: 10px;
+}
+
+
 .fb-below-title{
 	margin-top: 20px;
 }
 
+.fb-footer-bar{
+  height: 40px;
+	background: black;
+}
+
+.fb-footer-bar img{
+  padding-top: 10px;
+  height: 20px;
+}
 
 .fb-results{
 	

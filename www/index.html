@@ -9,6 +9,8 @@
 <link rel="stylesheet" type="text/css" href="/vendor/foundation/css/foundation.css">
 <link rel="stylesheet" type="text/css" href="/css/style.css">
 
+<script src="//load.sumome.com/" data-sumo-site-id="2cf9c4ee51edf656d257d85ceace08b154b39aa6fe4bd2fd3f08310160ef206e" async></script>
+
 </head>
 <body ng-app="app">
 	
@@ -16,7 +18,7 @@
 		<div class="fb-title-bar">
 			<div class="row">
 				<div class="column small-10">
-					<img src="/img/FRAMEbusca_Thin.png" alt="logo" />
+					<img src="/img/FrameBusca-Title.png" alt="logo" />
 				</div>
 			</div>
 		</div>
@@ -25,9 +27,7 @@
 	<div class="row fb-below-title">
 		<div class="columns medium-2 large-2 right text-center">
 			<div id="sticker">
-				<a href="/about" style="color: black">about</a>
-				<br>
-				<a href="http://www.lensfactory.com/"><img src="/img/FrameBusca_Skyscraper.png" alt="advert" /></a>
+				<a href="http://www.lensfactory.com/"><img src="/img/FrameBusca-Skyscraper.png" alt="advert" /></a>
 			</div>
 		</div>
 		
@@ -78,6 +78,14 @@
 			</div>
 		</div>
 	</div>
+    
+    <div class="fb-footer-bar">
+        <div class="row">
+            <div class="columns text-center">
+                <a href="http://www.lensfactory.com/"><img src="/img/framebusca-Footer.png" alt="Lens Factory" /></a>
+            </div>
+        </div>
+    </div>
 	
 	<script src="/vendor/modernizr/modernizr.js"></script>
 	<script src="/vendor/jquery/dist/jquery.min.js"></script>
@@ -92,8 +100,34 @@
 	<script>
 		$(document).ready(function(){
 			$("#sticker").sticky({topSpacing: 20});
+            
+            $(window).bind("load", function () {
+                var footer = $(".fb-footer-bar");
+                var pos = footer.position();
+                var height = $(window).height();
+                height = height - pos.top;
+                height = height - footer.height();
+                if (height > 0) {
+                    footer.css({
+                        'margin-top': height + 'px'
+                    });
+                }
+            });
 		});
 	</script>
+        
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-43764212-1', 'framebusca.com', {allowLinker: true});
+      ga('send', 'pageview');
+      ga('require', 'linker');
+      ga('linker:autoLink', ['framebusca.com', 'lensfactory.com']);
+
+    </script>
 	
 </body>
 </html>
