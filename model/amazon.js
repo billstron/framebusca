@@ -32,7 +32,7 @@ module.exports = function(dims, page, callback){
 	page++;
 	opHelper.execute('ItemSearch', {
 		'SearchIndex': 'Blended',
-		'Keywords': 'eyeglasses+48+16+130',
+		'Keywords': 'eyeglasses+' + dims.join("+"),
 		"ItemPage": page,
 		'ResponseGroup': 'ItemAttributes,Offers,Images'
 	}, function(err, results, raw) { 
