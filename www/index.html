@@ -38,15 +38,15 @@
 					<div class="columns small-3 text-center fb-query-cell-1">
 						<!-- <div class="fb-query-cell-1"></div> -->
 						<label style="margin-top: 50px"><b>LENS WIDTH</b></label>
-						<input type="text" class="fb-query-box expand large" ng-model="main.x" />
+						<input type="text" class="fb-query-box expand large" ng-model="main.x" placeholder="48"/>
 					</div>
 					<div class="columns small-3 text-center fb-query-cell-2">
 						<label style="margin-top: 50px"><b>BRIDGE WIDTH</b></label>
-						<input type="text" class="fb-query-box expand large" ng-model="main.y" />
+						<input type="text" class="fb-query-box expand large" ng-model="main.y" placeholder="16"/>
 					</div>
 					<div class="columns small-3 text-center fb-query-cell-3">
 						<label style="margin-top: 50px"><b>TEMPLE ARM LENGTH</b></label>
-						<input type="text" class="fb-query-box expand large" ng-model="main.z" />
+						<input type="text" class="fb-query-box expand large" ng-model="main.z" placeholder="130"/>
 					</div>
 					<div class="columns small-3 text-center fb-query-cell">
 						<button style="margin-top: 72px"class="expand large secondary fb-query-button" ng-click="main.submit(main.x, main.y, main.z)">SEARCH</button>
@@ -108,7 +108,7 @@
 	<script src="/src/app.js"></script>
 	
 	<script>
-        // $(document).ready(function(){
+        $(document).ready(function(){
 			
             
             $(window).bind("load", function () {
@@ -125,7 +125,7 @@
             });
             
             $("#sticker").sticky({topSpacing: 20});
-        // });
+        });
 	</script>
         
     <script>

@@ -6,9 +6,6 @@
 			var self = this;
 			
 			this.dims = [48, 16, 130];
-			this.x = this.dims[0];
-			this.y = this.dims[1];
-			this.z = this.dims[2];
 			this.page = 0;
 			this.numberPerPage = 20;
 			this.results = [];
