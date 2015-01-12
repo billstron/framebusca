@@ -32,20 +32,25 @@ module.exports = function(dims, page, callback){
 		+ "SECURITY-APPNAME=LensFact-936b-4e2f-bf76-d28c9c6bd411&"
 		+ "SERVICE-VERSION=1.11.0&"
 		+ "keywords(0)=eyeglasses&keywords(1)=" + dims.join("-");
-	console.log(url);
+    // console.log(url);
 	
 	request.get(url, function(error, response, result) {
 		var data;
 		var out = [];
 		try{
-			data = JSON.parse(result).findItemsByKeywordsResponse[0].searchResult[0].item;
-			var out = [];
-			data.forEach(function(item){
-				var x = convert(item);
-				if(x != null){
-					out.push(x);
-				}
-			});
+            var dd = JSON.parse(result).findItemsByKeywordsResponse[0]
+			data = dd.searchResult[0].item;
+            var pages = Number(dd.paginationOutput[0].totalPages[0]);
+            // console.log("pages:", page, pages);
+            var out = [];
+            if(page <= pages){
+    			data.forEach(function(item){
+    				var x = convert(item);
+    				if(x != null){
+    					out.push(x);
+    				}
+    			});
+            }
 		}catch(ex){
       // console.error("Error parsing Ebay:", ex);
 		}

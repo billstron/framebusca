@@ -15,6 +15,10 @@ app.post("/combined", function(req, res){
 		model.amazon(dims, page, function(err, amazonResults){
 			
 			var out = [];
+            var isMore = true;
+            if(ebayResults.length == 0 && amazonResults.length == 0){
+                isMore = false;
+            }
 			var size = ebayResults.length > amazonResults.length ? ebayResults.length : amazonResults.length;
 			for(var k = 0; k < size; k++){
 				if(typeof ebayResults[k] !== "undefined"){
@@ -25,7 +29,7 @@ app.post("/combined", function(req, res){
 				}
 			}
 						
-			res.json(out);
+			res.json({isMore : isMore, items: out});
 		});
 	});
 });

@@ -2,7 +2,15 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Framebusca</title>
+<title>Find designer eyeglass frames for less - FrameBusca.com</title>
+
+<meta name="description" content="Use the size of your current eyeglass frames to search and find discount designer frames from around the web.">
+
+<meta property="og:image" content="http://framebusca.com/img/FrameBusca_OG.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="635" />
+
+<link rel="icon" type="image/png" href="img/favicon.ico">
 
 <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -72,19 +80,19 @@
     			</div>
     			<div class="row fb-explainer" ng-hide="main.results.length || main.loading">
     				<div class="columns text-center">
-    					<img style="width: 80%; margin-top: 25px;" src="/img/FrameBusca_diagram.jpg" alt="diagram" />
+    					<img style="width: 80%; margin-top: 25px;" src="/img/Framebusca_Diagram-1.png" alt="diagram" />
     				</div>
     			</div>
     			<div class="row fb-results" ng-cloak class="ng-cloak">
     				<div class="fb-result" ng-repeat="(key, item) in main.results track by key" ng-cloak class="ng-cloak">
     					<div class="row fb-item">
     						<div class="columns small-3">
-    							<a ng-href="{{item.link}}">
+    							<a ng-href="{{item.link}}" target="_blank">
     								<img ng-src="{{item.image}}" style="width: 100%" alt="pic" />
     							</a>
     						</div>
     						<div class="columns small-6">
-    							<a ng-href="{{item.link}}">
+    							<a ng-href="{{item.link}}" target="_blank">
     								<p>{{item.title}}</p>
     							</a>
     						</div>
@@ -93,7 +101,7 @@
     						</div>
     					</div>
     				</div>
-                    <div style="padding-top: 10px;" class="row" ng-show="main.results.length && !main.loading" ng-cloak class="ng-cloak">
+                    <div style="padding-top: 10px;" class="row" ng-show="main.results.length && !main.loading && main.isMore" ng-cloak class="ng-cloak">
                         <div class="columns">
                             <button class="expand large secondary fb-query-button" ng-click="main.more()">MORE</button>
                         </div>
